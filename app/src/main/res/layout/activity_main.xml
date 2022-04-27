@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/allArticles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="allArticles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/articleById"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="articleById"
+        app:layout_constraintEnd_toEndOf="@+id/allArticles"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/allArticles"
+        app:layout_constraintTop_toBottomOf="@+id/allArticles" />
+
+
+    <Button
+        android:id="@+id/insertArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="insertArticle"
+        app:layout_constraintEnd_toEndOf="@+id/articleById"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="@+id/articleById"
+        app:layout_constraintTop_toBottomOf="@+id/articleById" />
+
+    <Button
+        android:id="@+id/updateArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="updateArticle"
+        app:layout_constraintEnd_toEndOf="@+id/insertArticle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/insertArticle"
+        app:layout_constraintTop_toBottomOf="@+id/insertArticle"  />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/deleteArticle"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="deleteArticle"
+        app:layout_constraintEnd_toEndOf="@+id/updateArticle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/updateArticle"
+        app:layout_constraintTop_toBottomOf="@+id/updateArticle"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
