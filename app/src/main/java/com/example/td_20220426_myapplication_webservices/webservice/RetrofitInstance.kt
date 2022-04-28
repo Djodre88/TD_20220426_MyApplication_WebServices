@@ -10,6 +10,7 @@ object RetrofitInstance {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
+            //            .addConverterFactory(MoshiConverterFactory.create().asLenient())
             .build()
     }
     val instance: DaoArticle by lazy {

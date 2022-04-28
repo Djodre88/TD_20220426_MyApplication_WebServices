@@ -10,11 +10,10 @@ interface DaoArticle {
     @POST("articles")
     suspend fun createArticle(@Body article : Article): Article
 
-    @PUT("article/{id}")
+    @PUT("articles/{id}")
     suspend fun updateArticle(@Path("id") articleId: Int, @Body article: Article): Article
 
-
-    @DELETE("article/{id}")
+    @DELETE("articles/{id}")
     suspend fun deleteArticle(@Path("id") articleId: Int)
 
 }

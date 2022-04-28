@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import com.example.td_20220426_myapplication_webservices.databinding.ActivityMainBinding
 import com.example.td_20220426_myapplication_webservices.model.Article
 import com.example.td_20220426_myapplication_webservices.webservice.RetrofitInstance
@@ -24,9 +25,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.allArticles.setOnClickListener{
+            Toast.makeText(
+                applicationContext,
+                "Chargement des données",
+            Toast.LENGTH_SHORT).show()
+
             CoroutineScope(Dispatchers.Main).launch {
                 var bool = true
+
                 binding.progressBar.visibility = VISIBLE
+
                 withContext(Dispatchers.IO) {
                     Thread.sleep(3000)
                     val articles = RetrofitInstance.instance.getArticle()
@@ -39,23 +47,33 @@ class MainActivity : AppCompatActivity() {
 
         binding.insertArticle.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                val article = RetrofitInstance.instance.createArticle(Article(0, 1, "Retrofit", "Insert"))
-                Log.d("articles", article.toString())
+                val article = RetrofitInstance.instance.createArticle(Article(0, 1, "CREATED", "CONTENT FROM ANDROID 11:43"))
+                Log.d("article inséré", article.toString())
             }
         }
 
         binding.updateArticle.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                val article = RetrofitInstance.instance.updateArticle(23, Article(23,1, "Retrofit", "Update1"))
-                Log.d("articles", article.toString())
+                val oldArticle = Article(3,1, "UPDATED", "CONTENT FROM ANDROID 11:50")
+                val newArticle = RetrofitInstance.instance.updateArticle(3, oldArticle)
+                Log.d("article mis à jour", newArticle.toString())
             }
+            Toast.makeText(
+                applicationContext,
+                "Artcle mis à jour",
+                Toast.LENGTH_SHORT).show()
+
         }
 
         binding.deleteArticle.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                RetrofitInstance.instance.deleteArticle(23)
-                Log.d("articles", "Deleted article")
+                val article = RetrofitInstance.instance.deleteArticle(15)
+                Log.d("Deleted article",  article.toString())
             }
+            Toast.makeText(
+                applicationContext,
+                "Article supprimé",
+                Toast.LENGTH_SHORT).show()
         }
     }
 }
